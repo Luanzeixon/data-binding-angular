@@ -1,18 +1,52 @@
 <section class="property-binding">
-
+<!--
 <article>
 <h1>Interpolation / Interpolação</h1>
 <p>String redenrizada com interpolação: {{ url }} </p>
-<p>Resultado de 1 + 1: {{ 1 + 1 }} </p> <!-- Angular resolve expressoes tbm-->
-<p>Resultado de 1 + 1 não é: {{ 1 + 1 + getValor()}}</p> <!-- retornar valor de metodos-->
+<p>Resultado de 1 + 1: {{ 1 + 1 }} </p> Angular resolve expressoes tbm
+<p>Resultado de 1 + 1 não é: {{ 1 + 1 + getValor()}}</p>  retornar valor de metodos
 <p>Curso angular e gosto de curso: {{ cursoAngular && getCurtirCurso()}}</p>
 </article>
 
 <article>
   <h3>Property Binding</h3>
-   <img src="{{urlImagem}}" alt=""> <!-- Interpolação-->
-   <img [src]="urlImagem" alt=""> <!-- Property Binding -->
-   <img bind-src="urlImagem" alt=""> <!-- Property Binding -->
+   <img src="{{urlImagem}}" alt="">  Interpolação, é uma especie de property binding
+   <img [src]="urlImagem" alt="">  Property Binding
+   <img bind-src="urlImagem" alt=""> Property Binding
 </article>
+-->
+<article>
+  <h3>Class e Style Binding</h3>
+  <div>
+    Selecione uma classe:
+    <select #classe (change)="0">
+      <option value="alert-success">Sucesso</option>
+      <option value="alert-info">Info</option>
+      <option value="alert-warning">Alerta</option>
+      <option value="alert-danger">Erro</option>
+    </select>
+  </div>
+  <br><br>
 
+  <div class="alert {{ classe.value }}"> <!-- muda a classe desse div de acordo com valor da #classe-->
+    Colorido conforme o valor do combobox
+  </div>
+
+  <div class="alert " role="alert"
+  [class.alert-success]="classe.value == 'alert-success'"
+  >Sucesso</div> <!--Se o valor seleciondo é o alert-success a classe alert-success é aplicada, neste caso o binding vai mudar o nome da classe de acordo com o que eu colocar-->
+
+  <div class="alert " role="alert"
+  [class.alert-dark]="classe.value == 'alert-info'">Info</div>  <!-- botei outra classe, dark-->
+  <div class="alert " role="alert"
+  [class.alert-warning]="classe.value == 'alert-warning'">Alerta</div>
+  <div class="alert " role="alert"
+  [class.alert-danger]="classe.value == 'alert-danger'">Erro</div>
+
+  <div class="alert alert-danger" role="alert"
+   [style.display]="classe.value == 'alert-danger' ? 'block' : 'none' ">Esse texto so aperece em caso de erro</div>  <!-- se o valor do slecet for o aler-danger entao(?) vai mudar o style.display para bloco
+   se não(:) vai deixar o display none-->
+
+
+</article>
 </section>
