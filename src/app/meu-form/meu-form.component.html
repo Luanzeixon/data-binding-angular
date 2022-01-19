@@ -1,0 +1,38 @@
+<section class="two-way-binding">
+  <article>
+    <h3>Two Way data binding</h3>
+    <div>
+      <!-- event binding -> input - sempre que o campo é atualizado -->
+      <input type="text"
+        [value]="nome"
+        (input)="nome = valorInput.value"
+        #valorInput
+      >
+
+      <input type="text"
+        [ngModel]="nome"
+        (ngModelChange)="nome = $event"
+        #valorInput
+      >
+
+       <!-- two way - juntar um binging de propiedade e um binidng de evento -->
+      <input type="text"
+     [(ngModel)]="nome"
+      >
+      <input type="text"
+     bindon-ngModel="nome"
+      >
+
+
+      <p>Você digitou o nome: {{ nome }}</p>
+    </div>
+    <div>
+
+      <p>Meu nome é {{pessoa.nome}} e minha idade é {{pessoa.idade}}</p>
+
+      <input type="text" [(ngModel)]="pessoa.nome">
+      <input type="text" [(ngModel)]="pessoa.idade">
+
+    </div>
+  </article>
+</section>
