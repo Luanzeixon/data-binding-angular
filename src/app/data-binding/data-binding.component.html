@@ -1,5 +1,7 @@
-<section class="property-binding">
+
 <!--
+<section class="property-binding">
+
 <article>
 <h1>Interpolation / Interpolação</h1>
 <p>String redenrizada com interpolação: {{ url }} </p>
@@ -14,7 +16,7 @@
    <img [src]="urlImagem" alt="">  Property Binding
    <img bind-src="urlImagem" alt=""> Property Binding
 </article>
--->
+
 <article>
   <h3>Class e Style Binding</h3>
   <div>
@@ -28,25 +30,58 @@
   </div>
   <br><br>
 
-  <div class="alert {{ classe.value }}"> <!-- muda a classe desse div de acordo com valor da #classe-->
+  <div class="alert {{ classe.value }}"> muda a classe desse div de acordo com valor da #classe
     Colorido conforme o valor do combobox
   </div>
 
   <div class="alert " role="alert"
   [class.alert-success]="classe.value == 'alert-success'"
-  >Sucesso</div> <!--Se o valor seleciondo é o alert-success a classe alert-success é aplicada, neste caso o binding vai mudar o nome da classe de acordo com o que eu colocar-->
+  >Sucesso</div> Se o valor seleciondo é o alert-success a classe alert-success é aplicada, neste caso o binding vai mudar o nome da classe de acordo com o que eu colocar
 
   <div class="alert " role="alert"
-  [class.alert-dark]="classe.value == 'alert-info'">Info</div>  <!-- botei outra classe, dark-->
+  [class.alert-dark]="classe.value == 'alert-info'">Info</div>   botei outra classe, dark
   <div class="alert " role="alert"
   [class.alert-warning]="classe.value == 'alert-warning'">Alerta</div>
   <div class="alert " role="alert"
   [class.alert-danger]="classe.value == 'alert-danger'">Erro</div>
 
   <div class="alert alert-danger" role="alert"
-   [style.display]="classe.value == 'alert-danger' ? 'block' : 'none' ">Esse texto so aperece em caso de erro</div>  <!-- se o valor do slecet for o aler-danger entao(?) vai mudar o style.display para bloco
-   se não(:) vai deixar o display none-->
-
-
+   [style.display]="classe.value == 'alert-danger' ? 'block' : 'none' ">Esse texto so aperece em caso de erro</div>   se o valor do select for o aler-danger entao(?) vai mudar o style.display para bloco
+   se não(:) vai deixar o display none
 </article>
+</section>
+-->
+
+<section class="event-binding">
+  <article>
+    <h3>Event Binding</h3>
+    <div>
+      <!-- property binding usa [] em eventos se usa ()-->
+      <button (click)="botaoClicado()"
+       class="btn btn-primary">Me clique!</button>
+
+       <br><br>
+         <!-- keyup - quando acaba de apertar uma tecla no teclado, pode usar para receber o que ta escrito e repassar para o ts-->
+         <!-- keyuo.enter - assim que apertar enter-->
+         <!-- blur - quando perde o foco-->
+         <!-- #campoInput - variavel local que recebe valor do input-->
+       <input type="text"
+       (keyup)="onKeyUp($event)"
+       (keyup.enter)="valorSalvar(campoInput.value)"
+       (blur)="valorSalvar(campoInput.value)"
+       #campoInput
+       >
+
+       <p>Valor do Input é: {{ valorAtual }}</p>
+       <p>Valor salvo do Input é: {{ valorSalvo }}</p>
+       <br>
+       <!-- classe highlight declada no styles.css-->
+      <span (mouseenter)="onMouseOverOut()"
+      (mouseout)="onMouseOverOut()"
+      [class.highlight]="isMouseOver">
+        Passe o mouse sobre mim</span>
+    </div>
+
+  </article>
+
 </section>
