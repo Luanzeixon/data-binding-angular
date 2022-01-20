@@ -28,6 +28,8 @@ export class DataBindingComponent implements OnInit {
 
   isMouseOver:boolean = false;
 
+  nomeDoCurso: string = 'Angular'; //passar essa variavel para o input-property.html
+
   getValor(){
     return 1; // metodo para ser interpolizada
   }
