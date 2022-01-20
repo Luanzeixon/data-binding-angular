@@ -30,6 +30,8 @@ export class DataBindingComponent implements OnInit {
 
   nomeDoCurso: string = 'Angular'; //passar essa variavel para o input-property.html
 
+  valorInicial: number = 15;
+
   getValor(){
     return 1; // metodo para ser interpolizada
   }
@@ -50,6 +52,11 @@ export class DataBindingComponent implements OnInit {
   onMouseOverOut(){
     this.isMouseOver = !this.isMouseOver; //negando o valor, se tiver true vai falso e se falso true
   }
+
+  onMudouValor(evento: any){
+    console.log(evento.novoValor);
+  }
+
 
   constructor() { }
 

@@ -91,8 +91,10 @@
 <section>
   <article>
     <h3>Input/Output Properties</h3>
-     <!-- Passar informação do data-binding.ts para o app-curso -->
+     <!-- Passar informação do data-binding.ts para o app-curso(input-properties.component) -->
     <app-curso [nome]=" nomeDoCurso"></app-curso>
-
+    <contador [valor]="valorInicial"
+    (mudouValor)="onMudouValor($event)"
+    ></contador>
   </article>
 </section>
